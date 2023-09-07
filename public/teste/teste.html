@@ -1,0 +1,121 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Teste</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+
+  <!-- Q: crie um componente que exiba uma lista de vídeos e que ao clicar em um vídeo, exiba os capítulos do vídeo selecionado com um formulario para adcionar capitulos com prevent submit. -->
+  
+
+
+
+
+
+  <body>
+    <div id="app">
+      <video-list :videos="videos"></video-list>
+    </div>
+
+    <template id="video-list-template">
+      <div>
+        <h2>Vídeos</h2>
+        <ul>
+          <li v-for="video in videos" @click="selectVideo(video)">
+            {{ video.title }}
+          </li>
+        </ul>
+        <video-chapters
+          v-if="selectedVideo"
+          :chapters="selectedVideo.chapters"
+        ></video-chapters>
+      </div>
+    </template>
+
+    <template id="video-chapters-template">
+      <div>
+        <h3>Capítulos de "{{ selectedVideo.title }}"</h3>
+        <ul>
+          <li v-for="chapter in chapters">
+            {{ chapter.label }}
+          </li>
+        </ul>
+        <form @submit.prevent="addChapter">
+            <input type="text" v-model="label" />
+            <button type="submit">Adicionar</button>
+        </form>
+      </div>
+    </template>
+
+    <script>
+      Vue.component('video-list', {
+        template: '#video-list-template',
+        props: ['videos'],
+        data() {
+          return {
+            selectedVideo: null,
+          }
+        },
+        methods: {
+          selectVideo(video) {
+            this.selectedVideo = video
+          },
+        },
+      })
+
+      Vue.component('video-chapters', {
+        template: '#video-chapters-template',
+        props: ['chapters'],
+        data() {
+          return {
+            label: '',
+          }
+        },
+        computed: {
+          selectedVideo() {
+            return this.$parent.selectedVideo
+          },
+        },
+        methods: {
+          addChapter() {
+            this.chapters.push({
+              label: this.label,
+            })
+            this.label = ''
+          },
+        },
+      })
+
+      new Vue({
+        el: '#app',
+        data: {
+          videos: [
+            {
+              title: 'Curso de VueJS',
+              chapters: [
+                {
+                  label: 'Introdução',
+                },
+                {
+                  label: 'Instalação',
+                },
+              ],
+            },
+            {
+              title: 'Curso de ReactJS',
+              chapters: [
+                {
+                  label: 'Introdução',
+                },
+                {
+                  label: 'Instalação',
+                },
+              ],
+            },
+          ],
+        },
+      })
+    </script>
+  </body>
+</html>

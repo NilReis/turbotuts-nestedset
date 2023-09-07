@@ -1,0 +1,436 @@
+[
+    {
+      "id": "1395",
+      "playlist_id": "305",
+      "created_at": "2022-02-19 17:32:13",
+      "updated_at": "2022-02-19 17:32:13",
+      "text": "Curso de SketchUp Pro",
+      "parent_id": "0",
+      "position": "1",
+      "children": [
+        {
+          "id": "1396",
+          "playlist_id": "305",
+          "created_at": "2022-02-19 17:32:13",
+          "updated_at": "2022-02-19 17:32:13",
+          "text": "Curso SketchUp 2017 - Aula 01: Introduo, Download e Instalao",
+          "parent_id": "1395",
+          "position": "1"
+        },
+        {
+          "id": "1397",
+          "playlist_id": "305",
+          "created_at": "2022-02-19 17:32:13",
+          "updated_at": "2022-02-19 17:32:13",
+          "text": "Curso SketchUp 2017 - Aula 02: Importando/Exportando Arquivos + 3D Wharehouse",
+          "parent_id": "1395",
+          "position": "1"
+        },
+        {
+          "id": "1398",
+          "playlist_id": "305",
+          "created_at": "2022-02-19 17:32:13",
+          "updated_at": "2022-02-19 17:32:13",
+          "text": "Curso SketchUp 2017 - Aula 03: Interface e Navegao",
+          "parent_id": "1395",
+          "position": "1"
+        },
+        {
+          "id": "1399",
+          "playlist_id": "305",
+          "created_at": "2022-02-19 17:32:13",
+          "updated_at": "2022-02-19 17:32:13",
+          "text": "Curso SketchUp 2017 - Aula 04: Como Criar Atalhos no SketchUp",
+          "parent_id": "1395",
+          "position": "1"
+        },
+        {
+          "id": "1400",
+          "playlist_id": "305",
+          "created_at": "2022-02-19 17:32:13",
+          "updated_at": "2022-02-19 17:32:13",
+          "text": "Curso SketchUp 2017 - Aula 05: Ferramentas de Desenho",
+          "parent_id": "1395",
+          "position": "1"
+        },
+        {
+          "id": "1401",
+          "playlist_id": "305",
+          "created_at": "2022-02-19 17:32:13",
+          "updated_at": "2022-02-19 17:32:13",
+          "text": "Curso SketchUp 2017 - Aula 06: Ferramentas de Modelagem",
+          "parent_id": "1395",
+          "position": "1"
+        },
+        {
+          "id": "1402",
+          "playlist_id": "305",
+          "created_at": "2022-02-19 17:32:13",
+          "updated_at": "2022-02-19 17:32:13",
+          "text": "Curso SketchUp 2017 - Aula 07: Cotas, Textos, Fita Mtrica e Edio de Eixos",
+          "parent_id": "1395",
+          "position": "1"
+        },
+        {
+          "id": "1403",
+          "playlist_id": "305",
+          "created_at": "2022-02-19 17:32:13",
+          "updated_at": "2022-02-19 17:32:13",
+          "text": "Curso SketchUp 2017 - Aula 08:  Corte e Ferramentas de Visualizao",
+          "parent_id": "1395",
+          "position": "1"
+        },
+        {
+          "id": "1404",
+          "playlist_id": "305",
+          "created_at": "2022-02-19 17:32:13",
+          "updated_at": "2022-02-19 17:32:13",
+          "text": "Curso SketchUp 2017 - Aula 09: Balde de Tintas",
+          "parent_id": "1395",
+          "position": "1"
+        },
+        {
+          "id": "1405",
+          "playlist_id": "305",
+          "created_at": "2022-02-19 17:32:13",
+          "updated_at": "2022-02-19 17:32:13",
+          "text": "Curso SketchUp 2017 - Aula 10: Grupos e Componentes",
+          "parent_id": "1395",
+          "position": "1"
+        },
+        {
+          "id": "1406",
+          "playlist_id": "305",
+          "created_at": "2022-02-19 17:32:13",
+          "updated_at": "2022-02-19 17:32:13",
+          "text": "Curso SketchUp 2017 - Aula 11: Trays",
+          "parent_id": "1395",
+          "position": "1"
+        },
+        {
+          "id": "1407",
+          "playlist_id": "305",
+          "created_at": "2022-02-19 17:32:13",
+          "updated_at": "2022-02-19 17:32:13",
+          "text": "Curso SketchUp 2017 - Aula 12: Texturizao",
+          "parent_id": "1395",
+          "position": "1"
+        },
+        {
+          "id": "1408",
+          "playlist_id": "305",
+          "created_at": "2022-02-19 17:32:13",
+          "updated_at": "2022-02-19 17:32:13",
+          "text": "Curso SketchUp 2017 - Aula 13: Texturizao Projetada",
+          "parent_id": "1395",
+          "position": "1"
+        },
+        {
+          "id": "1409",
+          "playlist_id": "305",
+          "created_at": "2022-02-19 17:32:13",
+          "updated_at": "2022-02-19 17:32:13",
+          "text": "Curso SketchUp 2017 - Aula 14: Modelagem Avanada de Vaso Decorativo",
+          "parent_id": "1395",
+          "position": "1"
+        },
+        {
+          "id": "1410",
+          "playlist_id": "305",
+          "created_at": "2022-02-19 17:32:13",
+          "updated_at": "2022-02-19 17:32:13",
+          "text": "Curso SketchUp 2017 - Aula 15: Configurando as Sombras",
+          "parent_id": "1395",
+          "position": "1"
+        },
+        {
+          "id": "1411",
+          "playlist_id": "305",
+          "created_at": "2022-02-19 17:32:13",
+          "updated_at": "2022-02-19 17:32:13",
+          "text": "Curso SketchUp 2017 - Aula Bnus: COMO INSTALAR PLUGINS NO SKETCHUP (#MsdoSketchUp)",
+          "parent_id": "1395",
+          "position": "1"
+        },
+        {
+          "id": "1412",
+          "playlist_id": "305",
+          "created_at": "2022-02-19 17:32:13",
+          "updated_at": "2022-02-19 17:32:13",
+          "text": "Curso SketchUp 2017 - Aula 16: Modelando Rampa em Curva (#Ms do SketchUp - Dia 01)",
+          "parent_id": "1395",
+          "position": "1"
+        },
+        {
+          "id": "1413",
+          "playlist_id": "305",
+          "created_at": "2022-02-19 17:32:13",
+          "updated_at": "2022-02-19 17:32:13",
+          "text": "Curso SketchUp 2017 - Aula 17: Modelando Terrenos no SketchUp (#MsdoSketchUp - Dia 02)",
+          "parent_id": "1395",
+          "position": "1"
+        },
+        {
+          "id": "1414",
+          "playlist_id": "305",
+          "created_at": "2022-02-19 17:32:13",
+          "updated_at": "2022-02-19 17:32:13",
+          "text": "Curso SketchUp 2017 - Aula 18: Modelando TERRENOS c/ CURVAS de NVEL (#MsdoSketchUp - Dia 03)",
+          "parent_id": "1395",
+          "position": "1"
+        },
+        {
+          "id": "1415",
+          "playlist_id": "305",
+          "created_at": "2022-02-19 17:32:13",
+          "updated_at": "2022-02-19 17:32:13",
+          "text": "Curso SketchUp 2017 - Aula 19: Modelando ESCADA em ESPIRAL (#MsdoSketchUp - Dia 04)",
+          "parent_id": "1395",
+          "position": "1"
+        },
+        {
+          "id": "1416",
+          "playlist_id": "305",
+          "created_at": "2022-02-19 17:32:13",
+          "updated_at": "2022-02-19 17:32:13",
+          "text": "Curso SketchUp 2017 - Aula 20: ESTRUTURA METLICA CURVADA  (#MsdoSketchUp - Dia 05)",
+          "parent_id": "1395",
+          "position": "1"
+        },
+        {
+          "id": "1417",
+          "playlist_id": "305",
+          "created_at": "2022-02-19 17:32:14",
+          "updated_at": "2022-02-19 17:32:14",
+          "text": "Curso SketchUp 2017 - Aula 21: REVESTIMEENTO 3D DECORATIVO (#MsdoSketchUp - Dia 06)",
+          "parent_id": "1395",
+          "position": "1"
+        },
+        {
+          "id": "1418",
+          "playlist_id": "305",
+          "created_at": "2022-02-19 17:32:14",
+          "updated_at": "2022-02-19 17:32:14",
+          "text": "Curso SketchUp 2017 - Aula 22: MODELANDO VITRAL (#MsdoSketchUp - Dia 07)",
+          "parent_id": "1395",
+          "position": "1"
+        },
+        {
+          "id": "1419",
+          "playlist_id": "305",
+          "created_at": "2022-02-19 17:32:14",
+          "updated_at": "2022-02-19 17:32:14",
+          "text": "Curso SketchUp 2017 - Aula 23: ADICIONANDO CONTEDO COM SIMULADOR FSICO (#MsdoSketchUp - Dia 08)",
+          "parent_id": "1395",
+          "position": "1"
+        },
+        {
+          "id": "1420",
+          "playlist_id": "305",
+          "created_at": "2022-02-19 17:32:14",
+          "updated_at": "2022-02-19 17:32:14",
+          "text": "Curso SketchUp 2017 - Aula 24: MODELANDO MOLDURA DE GESSO  (#MsdoSketchUp - Dia 09)",
+          "parent_id": "1395",
+          "position": "1"
+        },
+        {
+          "id": "1421",
+          "playlist_id": "305",
+          "created_at": "2022-02-19 17:32:14",
+          "updated_at": "2022-02-19 17:32:14",
+          "text": "Curso SketchUp 2017 - Aula 25: MODELANDO CONCREGRAMA  (#MsdoSketchUp - Dia 10)",
+          "parent_id": "1395",
+          "position": "1"
+        },
+        {
+          "id": "1422",
+          "playlist_id": "305",
+          "created_at": "2022-02-19 17:32:14",
+          "updated_at": "2022-02-19 17:32:14",
+          "text": "Curso SketchUp 2017 - Aula 26: MODELANDO VARAL DE LMPADAS (#MsdoSketchUp - Dia 11)",
+          "parent_id": "1395",
+          "position": "1"
+        },
+        {
+          "id": "1423",
+          "playlist_id": "305",
+          "created_at": "2022-02-19 17:32:14",
+          "updated_at": "2022-02-19 17:32:14",
+          "text": "Curso SketchUp 2017 - Aula 27: LETREIRO em PAREDE CURVA  (#MsdoSketchUp - Dia 12)",
+          "parent_id": "1395",
+          "position": "1"
+        },
+        {
+          "id": "1424",
+          "playlist_id": "305",
+          "created_at": "2022-02-19 17:32:14",
+          "updated_at": "2022-02-19 17:32:14",
+          "text": "Curso SketchUp 2017 - Aula 28: REVESTIMENTO 3D em PAREDE CURVA (#MsdoSketchUp - Dia 13)",
+          "parent_id": "1395",
+          "position": "1"
+        },
+        {
+          "id": "1425",
+          "playlist_id": "305",
+          "created_at": "2022-02-19 17:32:14",
+          "updated_at": "2022-02-19 17:32:14",
+          "text": "Curso SketchUp 2017 - Aula 29:  MODELANDO GUARDA-CORPO EM CURVA  (#MsdoSketchUp - Dia14)",
+          "parent_id": "1395",
+          "position": "1"
+        },
+        {
+          "id": "1426",
+          "playlist_id": "305",
+          "created_at": "2022-02-19 17:32:14",
+          "updated_at": "2022-02-19 17:32:14",
+          "text": "Curso SketchUp 2017 - Aula 30: Deixando o SKETCHUP 10x MAIS LEVE (#MsdoSketchUp - Dia15)",
+          "parent_id": "1395",
+          "position": "1"
+        },
+        {
+          "id": "1427",
+          "playlist_id": "305",
+          "created_at": "2022-02-19 17:32:14",
+          "updated_at": "2022-02-19 17:32:14",
+          "text": "Curso SketchUp 2017 - Aula 31: GERANDO ORAMENTO DIRETO NO SKETCHUP (#MsdoSketchUp - Dia16)",
+          "parent_id": "1395",
+          "position": "1"
+        },
+        {
+          "id": "1428",
+          "playlist_id": "305",
+          "created_at": "2022-02-19 17:32:14",
+          "updated_at": "2022-02-19 17:32:14",
+          "text": "Curso SketchUp 2017 - Aula 32: MODELANDO CALADA, RAMPA E MEIO-FIO (#MsdoSketchUp - Dia17)",
+          "parent_id": "1395",
+          "position": "1"
+        },
+        {
+          "id": "1429",
+          "playlist_id": "305",
+          "created_at": "2022-02-19 17:32:14",
+          "updated_at": "2022-02-19 17:32:14",
+          "text": "Curso SketchUp 2017 - Aula 33: TEXTURIZANDO RODOVIA CURVA  (#MsdoSketchUp - Dia18)",
+          "parent_id": "1395",
+          "position": "1"
+        },
+        {
+          "id": "1430",
+          "playlist_id": "305",
+          "created_at": "2022-02-19 17:32:14",
+          "updated_at": "2022-02-19 17:32:14",
+          "text": "Curso SketchUp 2017 - Aula 34: MODELANDO RODOVIA EM TERRENO IRREGULAR (#MsdoSketchUp - Dia19)",
+          "parent_id": "1395",
+          "position": "1"
+        },
+        {
+          "id": "1431",
+          "playlist_id": "305",
+          "created_at": "2022-02-19 17:32:14",
+          "updated_at": "2022-02-19 17:32:14",
+          "text": "Curso SketchUp 2017 - Aula 35: VEGETAO EM TERRENO IRREGULAR (#MsdoSketchUp - Dia 20)",
+          "parent_id": "1395",
+          "position": "1"
+        },
+        {
+          "id": "1432",
+          "playlist_id": "305",
+          "created_at": "2022-02-19 17:32:14",
+          "updated_at": "2022-02-19 17:32:14",
+          "text": "Curso SketchUp 2017 - Aula 36: Modelando MESINHA de TRONCO (#MsdoSketchUp - Dia 21)",
+          "parent_id": "1395",
+          "position": "1"
+        },
+        {
+          "id": "1433",
+          "playlist_id": "305",
+          "created_at": "2022-02-19 17:32:14",
+          "updated_at": "2022-02-19 17:32:14",
+          "text": "Curso SketchUp 2017 - Aula 37: RESOLVENDO BUG: FACES CORTADAS (#MsdoSketchUp - Dia 22)",
+          "parent_id": "1395",
+          "position": "1"
+        },
+        {
+          "id": "1434",
+          "playlist_id": "305",
+          "created_at": "2022-02-19 17:32:14",
+          "updated_at": "2022-02-19 17:32:14",
+          "text": "Curso SketchUp 2017 - Aula 38: DETALHANDO PAREDES CURVAS (#MsdoSketchUp - Dia 23)",
+          "parent_id": "1395",
+          "position": "1"
+        },
+        {
+          "id": "1435",
+          "playlist_id": "305",
+          "created_at": "2022-02-19 17:32:14",
+          "updated_at": "2022-02-19 17:32:14",
+          "text": "Curso SketchUp 2017 - Aula 39: DESIGN ORGNICO (#MsdoSketchUp - Dia 24)",
+          "parent_id": "1395",
+          "position": "1"
+        },
+        {
+          "id": "1436",
+          "playlist_id": "305",
+          "created_at": "2022-02-19 17:32:14",
+          "updated_at": "2022-02-19 17:32:14",
+          "text": "Curso SketchUp 2017 - Aula 40: MODELANDO TREPADEIRA(#MsdoSketchUp - Dia 25)",
+          "parent_id": "1395",
+          "position": "1"
+        },
+        {
+          "id": "1437",
+          "playlist_id": "305",
+          "created_at": "2022-02-19 17:32:14",
+          "updated_at": "2022-02-19 17:32:14",
+          "text": "Curso SketchUp 2017 - Aula 41: MODELANDO TECIDO NO SKETCHUP(#MsdoSketchUp - Dia 26)",
+          "parent_id": "1395",
+          "position": "1"
+        },
+        {
+          "id": "1438",
+          "playlist_id": "305",
+          "created_at": "2022-02-19 17:32:14",
+          "updated_at": "2022-02-19 17:32:14",
+          "text": "Curso SketchUp 2017 - Aula 42: MODELANDO JARDIM COMPLETO NO SKETCHUP  (#MsdoSketchUp - Dia 27)",
+          "parent_id": "1395",
+          "position": "1"
+        },
+        {
+          "id": "1439",
+          "playlist_id": "305",
+          "created_at": "2022-02-19 17:32:14",
+          "updated_at": "2022-02-19 17:32:14",
+          "text": "Curso SketchUp 2017 - Aula 43:  MODELANDO CABECEIRA CAPITON (#MsdoSketchUp - Dia 28)",
+          "parent_id": "1395",
+          "position": "1"
+        },
+        {
+          "id": "1440",
+          "playlist_id": "305",
+          "created_at": "2022-02-19 17:32:14",
+          "updated_at": "2022-02-19 17:32:14",
+          "text": "SKETCHUP 2017 - Aula 44: PAISAGISMO COM SKATTER (#MsdoSketchUp - Dia 29) - Curso Gratuito",
+          "parent_id": "1395",
+          "position": "1"
+        },
+        {
+          "id": "1441",
+          "playlist_id": "305",
+          "created_at": "2022-02-19 17:32:14",
+          "updated_at": "2022-02-19 17:32:14",
+          "text": "SKETCHUP 2017 - Aula 45: Modelando TELHADO NO SKETCHUP (#MsdoSketchUp - Dia 30)",
+          "parent_id": "1395",
+          "position": "1"
+        },
+        {
+          "id": "1442",
+          "playlist_id": "305",
+          "created_at": "2022-02-19 17:32:14",
+          "updated_at": "2022-02-19 17:32:14",
+          "text": "Como Tirar meu Certificado? #ChahoudCursos",
+          "parent_id": "1395",
+          "position": "1"
+        }
+      ]
+    }
+  ]

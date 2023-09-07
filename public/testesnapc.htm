@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Video Snapshot Example</title>
+
+    <!-- Adicione o CSS para o Video.js -->
+    <link href="https://vjs.zencdn.net/7.6.6/video-js.css" rel="stylesheet" />
+
+    <!-- Adicione o CSS para o videojs-snapshot -->
+    <link href="/path/to/videojs.snapshot.css" rel="stylesheet" />
+</head>
+<body>
+    <video id="my-video" class="video-js" controls preload="auto" data-setup='{}'>
+        <source src="/path/to/video.mp4" type="video/mp4" />
+    </video>
+
+    <!-- Adicione o JavaScript para o Video.js -->
+    <script src="https://vjs.zencdn.net/7.6.6/video.js"></script>
+
+    <!-- Adicione o JavaScript para o videojs-snapshot -->
+    <script src="/path/to/videojs.snapshot.js"></script>
+
+    <script>
+        // Inicialize o player de vídeo
+        var player = videojs('my-video');
+
+        // Adicione o plugin videojs-snapshot
+        player.snapshot();
+
+        // Configure a função para manipular a captura de tela
+        player.on('snapshot', function(event, data) {
+            // Faça algo com a imagem em data.image
+            // Por exemplo, você pode adicioná-la a uma tag de imagem na página
+            var img = document.createElement('img');
+            img.src = data.image;
+            document.body.appendChild(img);
+        });
+    </script>
+</body>
+</html>

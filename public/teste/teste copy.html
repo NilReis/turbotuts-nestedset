@@ -1,0 +1,66 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Teste</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+
+  <!-- Q: crie um componente que exiba uma lista de vídeos e que ao clicar em um vídeo, exiba os capítulos do vídeo selecionado com um formulario para adcionar capitulos com prevent submit. -->
+  
+
+
+  <body>
+    <div id="app">
+      <ul>
+        <li v-for="video in videos">
+          <a @click="getChapters(video.id)" href="">{{ video.name }}</a>
+        </li>
+      </ul>
+
+      <ul>
+        <li v-for="chapter in chapters">
+          {{ chapter.name }}
+        </li>
+      </ul>
+
+      <form @submit.prevent="addChapter">
+        <input type="text" v-model="newChapter.name" />
+        <input type="submit" value="Adicionar" />
+      </form>
+    </div>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          videos: [],
+          chapters: [],
+          newChapter: {
+            name: ""
+          }
+        },
+        methods: {
+          getVideos() {
+            axios.get("http://localhost:3000/videos").then(response => {
+              this.videos = response.data;
+            });
+          },
+          getChapters(id) {
+            axios.get(`http://localhost:3000/chapters/${id}`).then(response => {
+              this.chapters = response.data;
+            });
+          },
+          addChapter() {
+            axios.post("http://localhost:3000/chapters", this.newChapter).then(response => {
+              this.chapters.push(response.data);
+              this.newChapter.name = "";
+            });
+          }
+        },
+        mounted() {
+          this.getVideos();
+        }
+      });
+    </script>
+  </body>
+

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Vue.js Accordion with Bootstrap</title>
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link href="https://vjs.zencdn.net/7.14.3/video-js.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="row mb-3">
+      <div class="col-md-7 themed-grid-col">
+        <video
+          id="my-video"
+          class="video-js"
+          controls
+          preload="auto"
+          poster="https://i.ytimg.com/vi/XwpsxPmQN2E/default.jpg"
+          data-setup="{}"
+          width="608"
+        >
+          <source src="https://vjs.zencdn.net/v/oceans.mp4" type="video/mp4" />
+          <p class="vjs-no-js">
+            To view this video please enable JavaScript, and consider upgrading
+            to a web browser that supports HTML5 video
+          </p>
+        </video>
+      </div>
+      <div class="col-md-5 themed-grid-col">
+        <div id="app" class="container">
+          <accordion v-bind:items="items"></accordion>
+        </div>
+      </div>
+    </div>
+    <!-- Vue.js and Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://vjs.zencdn.net/7.14.3/video.js"></script>
+
+    <template id="accordion-template">
+      <div class="accordion" id="accordionExample">
+        <div class="card" v-for="(item, index) in items" :key="index">
+          <div class="card-header" :id="'heading-' + index">
+            <h2 class="mb-0">
+              <button
+                class="btn btn-link"
+                type="button"
+                @click="toggle(index)"
+                :aria-expanded="item.expanded"
+                :aria-controls="'collapse-' + index"
+              >
+                {{ item.title }}
+              </button>
+            </h2>
+          </div>
+          <div
+            :id="'collapse-' + index"
+            class="collapse"
+            :class="{'show': item.expanded}"
+            :aria-labelledby="'heading-' + index"
+            data-parent="#accordionExample"
+          >
+            <div class="card-body">
+              <div class="card-body">
+                <img
+                  class
+                  src="https://i.ytimg.com/vi/XwpsxPmQN2E/default.jpg"
+                  alt="Card image cap"
+                />
+                <div
+                  class="btn-group btn-group-lg"
+                  role="group"
+                  aria-label="Basic example"
+                >
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    onclick="openVideo(1)"
+                  >
+                    FHD
+                  </button>
+                  <button type="button" class="btn btn-secondary">
+                    HD
+                  </button>
+                  <button type="button" class="btn btn-secondary">
+                    SD
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    data-toggle="modal"
+                    data-target="#myModal"
+                  >
+                    +Marcador
+                  </button>
+                </div>
+                <br />
+                {{ item.title }}
+                <p>{{ item.description }}</p>
+              </div>
+              <div class="card-body">
+                <p>Capitulos</p>
+                {{ item.chapters.length }}
+                <div v-if="item.chapters.length === 0">
+                  <p>Não há capítulos neste livro.</p>
+                </div>
+
+                <div v-else>
+                  <chapter-component v-for="chapter in item.chapters" v-bind:chapters="chapters"></chapter-component>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </template>
+
+    <template id="chapter-template">
+      <p>{{chapter}}</p>
+
+      <div class="card-body">
+        <h5 class="card-title">{{ chapter.title }}</h5>
+        <p class="card-text">{{ chapter.description }}</p>
+      </div>
+    </template>
+
+    <script>
+      Vue.component('accordion', {
+        template: '#accordion-template',
+        props: ['items'],
+        methods: {
+          toggle: function (index) {
+            this.items[index].expanded = !this.items[index].expanded
+          },
+        },
+      })
+
+      new Vue({
+        el: '#app',
+        data: {
+          items: [
+            {
+              title: 'Video 1',
+              description: 'Description for Video 1',
+              expanded: false,
+              chapters: [
+                {
+                  title: 'Chapter 1',
+                  description: 'Description for Chapter 1',
+                },
+                {
+                  title: 'Chapter 2',
+                  description: 'Description for Chapter 2',
+                },
+                {
+                  title: 'Chapter 3',
+                  description: 'Description for Chapter 3',
+                },
+              ],
+            },
+            {
+              title: 'Video 2',
+              description: 'Description for Video 2',
+              expanded: false,
+              chapters: [
+                {
+                  title: 'Chapter 1',
+                  description: 'Description for Chapter 1',
+                },
+                {
+                  title: 'Chapter 2',
+                  description: 'Description for Chapter 2',
+                },
+              ],
+            },
+            {
+              title: 'Video 3',
+              description: 'Description for Video 3',
+              expanded: false,
+              chapters: [
+                {
+                  title: 'Chapter 1',
+                  description: 'Description for Chapter 1',
+                },
+                {
+                  title: 'Chapter 2',
+                  description: 'Description for Chapter 2',
+                },
+                {
+                  title: 'Chapter 3',
+                  description: 'Description for Chapter 3',
+                },
+                {
+                  title: 'Chapter 4',
+                  description: 'Description for Chapter 4',
+                },
+              ],
+            },
+          ],
+        },
+      })
+    </script>
+    <script>
+      Vue.component('chapter-component', {
+        template: '#chapter-template',
+        props: ['chapters'],
+      })
+    </script>
+  </body>
+</html>

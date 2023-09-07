@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Componentes Aninhados Vue.js</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.3.4/dist/axios.min.js"></script>
+
+  </head>
+  <body>
+    <div id="app">
+      <video-list></video-list>
+    </div>
+
+    <template id="video-list-template">
+      <div>
+        <h2>Lista de Vídeos</h2>
+        <ul>
+          <li v-for="video in videos">
+            {{ video.title }}
+            <chapter-list :chapters="video.chapters"></chapter-list>
+          </li>
+        </ul>
+      </div>
+    </template>
+
+    <template id="chapter-list-template">
+      <div>
+        <h3>Capítulos</h3>
+        <ul>
+          <li v-for="chapter in chapters">
+            {{ chapter.title }}
+          </li>
+        </ul>
+      </div>
+    </template>
+
+    <script>
+      Vue.component('video-list', {
+        template: '#video-list-template',
+        data() {
+          return {
+            videos: [
+              {
+                title: 'Introdução ao Vue.js',
+                chapters: [
+                  { title: 'O que é o Vue.js?' },
+                  { title: 'Instalando o Vue.js' },
+                  { title: 'Criando o primeiro componente' },
+                ],
+              },
+              {
+                title: 'Construindo um SPA com Vue.js',
+                chapters: [
+                  { title: 'Configurando o roteador' },
+                  { title: 'Criando a página inicial' },
+                  { title: 'Adicionando novas páginas' },
+                ],
+              },
+            ],
+          }
+        },
+      })
+
+      Vue.component('chapter-list', {
+        template: '#chapter-list-template',
+        props: ['chapters'],
+      })
+
+
+      new Vue({
+        el: '#app',
+      })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,506 @@
+[
+    {
+        "id": "1",
+        "playlist_id": "1",
+        "created_at": "2022-02-20 20:04:52",
+        "updated_at": "2022-06-12 20:27:01",
+        "text": "Curso de PHP 7 - Aula 01 - Introdução ao PHP 7",
+        "parent_id": "0",
+        "position": "1"
+    },
+    {
+        "id": "2",
+        "playlist_id": "1",
+        "created_at": "2022-02-20 20:04:57",
+        "updated_at": "2022-06-12 20:34:50",
+        "text": "Curso de PHP 7 - Aula 02 - Instalando o SublimeText 3",
+        "parent_id": "0",
+        "position": "1"
+    },
+    {
+        "id": "3",
+        "playlist_id": "1",
+        "created_at": "2022-02-20 20:05:11",
+        "updated_at": "2022-02-20 20:05:11",
+        "text": "Curso de PHP 7 - Aula 03 - Instalando o WampServer 3",
+        "parent_id": "0",
+        "position": "1"
+    },
+    {
+        "id": "4",
+        "playlist_id": "1",
+        "created_at": "2022-02-20 20:05:13",
+        "updated_at": "2022-02-20 20:05:13",
+        "text": "Curso de PHP 7 - Aula 04 - Criando Virtual Hosts",
+        "parent_id": "0",
+        "position": "1"
+    },
+    {
+        "id": "5",
+        "playlist_id": "1",
+        "created_at": "2022-02-20 20:05:19",
+        "updated_at": "2022-02-20 20:05:19",
+        "text": "Curso de PHP 7 - Aula 05 -  Fundamentos Básicos",
+        "parent_id": "0",
+        "position": "1"
+    },
+    {
+        "id": "6",
+        "playlist_id": "1",
+        "created_at": "2022-02-20 20:05:23",
+        "updated_at": "2022-02-20 20:05:23",
+        "text": "Curso de PHP 7 - Aula 06 - Variáveis",
+        "parent_id": "0",
+        "position": "1"
+    },
+    {
+        "id": "7",
+        "playlist_id": "1",
+        "created_at": "2022-02-20 20:05:23",
+        "updated_at": "2022-02-20 20:05:23",
+        "text": "Curso de PHP 7 - Aula 07 - Variáveis dinâmicas",
+        "parent_id": "0",
+        "position": "1"
+    },
+    {
+        "id": "8",
+        "playlist_id": "1",
+        "created_at": "2022-02-20 20:05:23",
+        "updated_at": "2022-02-20 20:05:23",
+        "text": "Curso de PHP 7 - Aula 08 - Tipos de dados",
+        "parent_id": "0",
+        "position": "1"
+    },
+    {
+        "id": "9",
+        "playlist_id": "1",
+        "created_at": "2022-02-20 20:05:23",
+        "updated_at": "2022-02-20 20:05:23",
+        "text": "Curso de PHP 7 - Aula 09 - Aspas simples, Aspas duplas e Concatenação",
+        "parent_id": "0",
+        "position": "1"
+    },
+    {
+        "id": "10",
+        "playlist_id": "1",
+        "created_at": "2022-02-20 20:05:23",
+        "updated_at": "2022-02-20 20:05:23",
+        "text": "Curso de PHP 7 - Aula 10 - Escopo de variavéis",
+        "parent_id": "0",
+        "position": "1"
+    },
+    {
+        "id": "11",
+        "playlist_id": "1",
+        "created_at": "2022-02-20 20:05:23",
+        "updated_at": "2022-02-20 20:05:23",
+        "text": "Curso de PHP 7 - Aula 11 - Constantes",
+        "parent_id": "0",
+        "position": "1"
+    },
+    {
+        "id": "12",
+        "playlist_id": "1",
+        "created_at": "2022-02-20 20:05:23",
+        "updated_at": "2022-02-20 20:05:23",
+        "text": "Curso de PHP 7 - Aula 12 - Arrays #1",
+        "parent_id": "0",
+        "position": "1"
+    },
+    {
+        "id": "13",
+        "playlist_id": "1",
+        "created_at": "2022-02-20 20:05:23",
+        "updated_at": "2022-02-20 20:05:23",
+        "text": "Curso de PHP 7 - Aula 13 - Arrays #2",
+        "parent_id": "0",
+        "position": "1"
+    },
+    {
+        "id": "14",
+        "playlist_id": "1",
+        "created_at": "2022-02-20 20:05:23",
+        "updated_at": "2022-02-20 20:05:23",
+        "text": "Curso de PHP 7 - Aula 14 - Arrays #3",
+        "parent_id": "0",
+        "position": "1"
+    },
+    {
+        "id": "15",
+        "playlist_id": "1",
+        "created_at": "2022-02-20 20:05:23",
+        "updated_at": "2022-02-20 20:05:23",
+        "text": "Curso de PHP 7  - Aula 15 - Funções de Arrays #1",
+        "parent_id": "0",
+        "position": "1"
+    },
+    {
+        "id": "16",
+        "playlist_id": "1",
+        "created_at": "2022-02-20 20:05:23",
+        "updated_at": "2022-02-20 20:05:23",
+        "text": "Curso de PHP 7 - Aula 16 - Funções de Arrays #2",
+        "parent_id": "0",
+        "position": "1"
+    },
+    {
+        "id": "17",
+        "playlist_id": "1",
+        "created_at": "2022-02-20 20:05:23",
+        "updated_at": "2022-02-20 20:05:23",
+        "text": "Curso de PHP 7 - Aula 17 - Funções de Arrays #3",
+        "parent_id": "0",
+        "position": "1"
+    },
+    {
+        "id": "18",
+        "playlist_id": "1",
+        "created_at": "2022-02-20 20:05:23",
+        "updated_at": "2022-02-20 20:05:23",
+        "text": "Curso de PHP 7 - Aula 18 - Funções de Arrays #4",
+        "parent_id": "0",
+        "position": "1"
+    },
+    {
+        "id": "19",
+        "playlist_id": "1",
+        "created_at": "2022-02-20 20:05:23",
+        "updated_at": "2022-02-20 20:05:23",
+        "text": "Curso de PHP 7 - Aula 19 - Condicionais (If / Else / Elseif)",
+        "parent_id": "0",
+        "position": "1"
+    },
+    {
+        "id": "20",
+        "playlist_id": "1",
+        "created_at": "2022-02-20 20:05:23",
+        "updated_at": "2022-02-20 20:05:23",
+        "text": "Curso de PHP 7 - Aula 20 - Condicionais (Switch / Case)",
+        "parent_id": "0",
+        "position": "1"
+    },
+    {
+        "id": "21",
+        "playlist_id": "1",
+        "created_at": "2022-02-20 20:05:23",
+        "updated_at": "2022-02-20 20:05:23",
+        "text": "Curso de PHP 7 - Aula 21 - Operadores Aritmeticos",
+        "parent_id": "0",
+        "position": "1"
+    },
+    {
+        "id": "22",
+        "playlist_id": "1",
+        "created_at": "2022-02-20 20:05:23",
+        "updated_at": "2022-02-20 20:05:23",
+        "text": "Curso de PHP 7 - Aula 22 - Operadores de Incremento e Decremento",
+        "parent_id": "0",
+        "position": "1"
+    },
+    {
+        "id": "23",
+        "playlist_id": "1",
+        "created_at": "2022-02-20 20:05:23",
+        "updated_at": "2022-02-20 20:05:23",
+        "text": "Curso de PHP7 - Aula 23 - Operadores de Atribuição",
+        "parent_id": "0",
+        "position": "1"
+    },
+    {
+        "id": "24",
+        "playlist_id": "1",
+        "created_at": "2022-02-20 20:05:23",
+        "updated_at": "2022-02-20 20:05:23",
+        "text": "Curso de PHP 7 - Aula 24 - Operadores de Comparação",
+        "parent_id": "0",
+        "position": "1"
+    },
+    {
+        "id": "25",
+        "playlist_id": "1",
+        "created_at": "2022-02-20 20:05:23",
+        "updated_at": "2022-02-20 20:05:23",
+        "text": "Curso de PHP7 -  Aula 25 - Operadores Lógicos",
+        "parent_id": "0",
+        "position": "1"
+    },
+    {
+        "id": "26",
+        "playlist_id": "1",
+        "created_at": "2022-02-20 20:05:23",
+        "updated_at": "2022-02-20 20:05:23",
+        "text": "Curso de PHP 7 - Aula 26 - While & Do While",
+        "parent_id": "0",
+        "position": "1"
+    },
+    {
+        "id": "27",
+        "playlist_id": "1",
+        "created_at": "2022-02-20 20:05:23",
+        "updated_at": "2022-02-20 20:05:23",
+        "text": "Curso de PHP 7 - Aula 27 - For & Foreach",
+        "parent_id": "0",
+        "position": "1"
+    },
+    {
+        "id": "28",
+        "playlist_id": "1",
+        "created_at": "2022-02-20 20:05:23",
+        "updated_at": "2022-02-20 20:05:23",
+        "text": "Curso de PHP 7 - Aula 28 -  Funções para Strings #1",
+        "parent_id": "0",
+        "position": "1"
+    },
+    {
+        "id": "29",
+        "playlist_id": "1",
+        "created_at": "2022-02-20 20:05:23",
+        "updated_at": "2022-02-20 20:05:23",
+        "text": "Curso de PHP 7 - Aula 29 - Funções para Strings #2",
+        "parent_id": "0",
+        "position": "1"
+    },
+    {
+        "id": "30",
+        "playlist_id": "1",
+        "created_at": "2022-02-20 20:05:23",
+        "updated_at": "2022-02-20 20:05:23",
+        "text": "Curso de PHP 7 - Aula 30 - Funções para Números",
+        "parent_id": "0",
+        "position": "1"
+    },
+    {
+        "id": "31",
+        "playlist_id": "1",
+        "created_at": "2022-02-20 20:05:23",
+        "updated_at": "2022-02-20 20:05:23",
+        "text": "Curso de PHP 7 - Aula 31 - Como criar funções",
+        "parent_id": "0",
+        "position": "1"
+    },
+    {
+        "id": "32",
+        "playlist_id": "1",
+        "created_at": "2022-02-20 20:05:23",
+        "updated_at": "2022-02-20 20:05:23",
+        "text": "Curso de PHP7 - Aula 32 - Superglobais",
+        "parent_id": "0",
+        "position": "1"
+    },
+    {
+        "id": "33",
+        "playlist_id": "1",
+        "created_at": "2022-02-20 20:05:23",
+        "updated_at": "2022-02-20 20:05:23",
+        "text": "Curso de PHP 7 - Aula 33 - Formulários ($_POST)",
+        "parent_id": "0",
+        "position": "1"
+    },
+    {
+        "id": "34",
+        "playlist_id": "1",
+        "created_at": "2022-02-20 20:05:23",
+        "updated_at": "2022-02-20 20:05:23",
+        "text": "Curso de PHP 7 - Aula 34 - Formulários ($_GET)",
+        "parent_id": "0",
+        "position": "1"
+    },
+    {
+        "id": "35",
+        "playlist_id": "1",
+        "created_at": "2022-02-20 20:05:23",
+        "updated_at": "2022-02-20 20:05:23",
+        "text": "Curso de PHP 7 - Aula 35 - Validações (Validate Filters)",
+        "parent_id": "0",
+        "position": "1"
+    },
+    {
+        "id": "36",
+        "playlist_id": "1",
+        "created_at": "2022-02-20 20:05:23",
+        "updated_at": "2022-02-20 20:05:23",
+        "text": "Curso de PHP 7 - Aula 36 - Sanitização (Sanitize Filters)",
+        "parent_id": "0",
+        "position": "1"
+    },
+    {
+        "id": "37",
+        "playlist_id": "1",
+        "created_at": "2022-02-20 20:05:23",
+        "updated_at": "2022-02-20 20:05:23",
+        "text": "Curso de PHP 7 - Aula 37 - Upload de Arquivos",
+        "parent_id": "0",
+        "position": "1"
+    },
+    {
+        "id": "38",
+        "playlist_id": "1",
+        "created_at": "2022-02-20 20:05:23",
+        "updated_at": "2022-02-20 20:05:23",
+        "text": "Curso de PHP 7 - Aula 38 - Upload Múltiplo",
+        "parent_id": "0",
+        "position": "1"
+    },
+    {
+        "id": "39",
+        "playlist_id": "1",
+        "created_at": "2022-02-20 20:05:23",
+        "updated_at": "2022-02-20 20:05:23",
+        "text": "Curso de PHP 7 - Aula 39 - Sessões",
+        "parent_id": "0",
+        "position": "1"
+    },
+    {
+        "id": "40",
+        "playlist_id": "1",
+        "created_at": "2022-02-20 20:05:23",
+        "updated_at": "2022-02-20 20:05:23",
+        "text": "Curso de PHP 7 - Aula 40 - Sistema de Login (PHP Procedural) #1",
+        "parent_id": "0",
+        "position": "1"
+    },
+    {
+        "id": "41",
+        "playlist_id": "1",
+        "created_at": "2022-02-20 20:05:23",
+        "updated_at": "2022-02-20 20:05:23",
+        "text": "Curso de PHP 7 - Aula 41 - Sistema de Login (PHP Procedural) #2",
+        "parent_id": "0",
+        "position": "1"
+    },
+    {
+        "id": "42",
+        "playlist_id": "1",
+        "created_at": "2022-02-20 20:05:23",
+        "updated_at": "2022-02-20 20:05:23",
+        "text": "Curso de PHP 7 - Aula 42 - Criptografia/Codificação",
+        "parent_id": "0",
+        "position": "1"
+    },
+    {
+        "id": "43",
+        "playlist_id": "1",
+        "created_at": "2022-02-20 20:05:23",
+        "updated_at": "2022-02-20 20:05:23",
+        "text": "Curso de PHP 7 - Aula 43 - Senhas seguras com password hash",
+        "parent_id": "0",
+        "position": "1"
+    },
+    {
+        "id": "44",
+        "playlist_id": "1",
+        "created_at": "2022-02-20 20:05:23",
+        "updated_at": "2022-02-20 20:05:23",
+        "text": "Curso de PHP 7 - Aula 44 - SQL Injection",
+        "parent_id": "0",
+        "position": "1"
+    },
+    {
+        "id": "45",
+        "playlist_id": "1",
+        "created_at": "2022-02-20 20:05:23",
+        "updated_at": "2022-02-20 20:05:23",
+        "text": "Curso de PHP 7 - Aula 45 - Include / Include_Once / Require_Once / Require_Once",
+        "parent_id": "0",
+        "position": "1"
+    },
+    {
+        "id": "46",
+        "playlist_id": "1",
+        "created_at": "2022-02-20 20:05:23",
+        "updated_at": "2022-02-20 20:05:23",
+        "text": "Curso de PHP7 - Aula 46 - CRUD com PHP, MYSQL e Materialize CSS #1",
+        "parent_id": "0",
+        "position": "1"
+    },
+    {
+        "id": "47",
+        "playlist_id": "1",
+        "created_at": "2022-02-20 20:05:23",
+        "updated_at": "2022-02-20 20:05:23",
+        "text": "Curso de PHP 7 - Aula 47 - CRUD com PHP Procedural, MYSQL e Materialize CSS #2",
+        "parent_id": "0",
+        "position": "1"
+    },
+    {
+        "id": "48",
+        "playlist_id": "1",
+        "created_at": "2022-02-20 20:05:23",
+        "updated_at": "2022-02-20 20:05:23",
+        "text": "Curso de PHP 7 - Aula 48 - CRUD com PHP Procedural, MYSQL e Materialize CSS #3",
+        "parent_id": "0",
+        "position": "1"
+    },
+    {
+        "id": "49",
+        "playlist_id": "1",
+        "created_at": "2022-02-20 20:05:24",
+        "updated_at": "2022-02-20 20:05:24",
+        "text": "Curso de PHP 7 - Aula 49 - CRUD com PHP Procedural, MYSQL e Materialize CSS #4",
+        "parent_id": "0",
+        "position": "1"
+    },
+    {
+        "id": "50",
+        "playlist_id": "1",
+        "created_at": "2022-02-20 20:05:24",
+        "updated_at": "2022-02-20 20:05:24",
+        "text": "Curso de PHP 7 - Aula 50 - CRUD com PHP Procedural, MYSQL e Materialize CSS #5",
+        "parent_id": "0",
+        "position": "1"
+    },
+    {
+        "id": "51",
+        "playlist_id": "1",
+        "created_at": "2022-02-20 20:05:24",
+        "updated_at": "2022-02-20 20:05:24",
+        "text": "Curso de PHP 7 - Aula 51 - XSS (Cross Site Scripting)",
+        "parent_id": "0",
+        "position": "1"
+    },
+    {
+        "id": "52",
+        "playlist_id": "1",
+        "created_at": "2022-02-20 20:05:24",
+        "updated_at": "2022-02-20 20:05:24",
+        "text": "Curso de PHP 7 - Aula 52 - $_COOKIE",
+        "parent_id": "0",
+        "position": "1"
+    },
+    {
+        "id": "53",
+        "playlist_id": "1",
+        "created_at": "2022-02-20 20:05:24",
+        "updated_at": "2022-02-20 20:05:24",
+        "text": "Curso de PHP 7 - Aula 53 - Trabalhando com Datas",
+        "parent_id": "0",
+        "position": "1"
+    },
+    {
+        "id": "54",
+        "playlist_id": "1",
+        "created_at": "2022-02-20 20:05:24",
+        "updated_at": "2022-02-20 20:05:24",
+        "text": "Curso de PHP 7 - Aula 54 - Manipulação de Arquivos",
+        "parent_id": "0",
+        "position": "1"
+    },
+    {
+        "id": "55",
+        "playlist_id": "1",
+        "created_at": "2022-02-20 20:05:24",
+        "updated_at": "2022-02-20 20:05:24",
+        "text": "Curso de PHP 7 - Aula 55 - Expressões Regulares e Preg_Match [Final]",
+        "parent_id": "0",
+        "position": "1"
+    },
+    {
+        "id": "56",
+        "playlist_id": "1",
+        "created_at": "2022-02-20 20:05:24",
+        "updated_at": "2022-02-20 20:05:24",
+        "text": "CURSO DE PHP MVC ✅",
+        "parent_id": "0",
+        "position": "1"
+    }
+]

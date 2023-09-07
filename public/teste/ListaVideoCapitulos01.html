@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>VueJS Nested Components Example</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/axios@1.3.4/dist/axios.min.js"></script>
+
+</head>
+<body>
+  <div id="app">
+    <video-list :videos="videos"></video-list>
+  </div>
+
+  <template id="video-list-template">
+    <div>
+      <h2>Vídeos</h2>
+      <ul>
+        <li v-for="video in videos" @click="selectVideo(video)">
+          {{ video.title }}
+        </li>
+      </ul>
+      <video-chapters v-if="selectedVideo" :chapters="selectedVideo.chapters"></video-chapters>
+    </div>
+  </template>
+
+  <template id="video-chapters-template">
+    <div>
+      <h3>Capítulos de "{{ selectedVideo.title }}"</h3>
+      <ul>
+        <li v-for="chapter in chapters">
+          {{ chapter.label }}
+        </li>
+      </ul>
+    </div>
+  </template>
+  <script>
+    Vue.component('video-list', {
+      template: '#video-list-template',
+      props: ['videos'],
+      data() {
+        return {
+          selectedVideo: null
+        }
+      },
+      methods: {
+        selectVideo(video) {
+          this.selectedVideo = video;
+        }
+      }
+    });
+
+    Vue.component('video-chapters', {
+      template: '#video-chapters-template',
+      props: ['chapters'],
+      computed: {
+        selectedVideo() {
+          return this.$parent.selectedVideo;
+        }
+      }
+    });
+
+    new Vue({
+        el: '#app',
+        data() {
+          return {
+            videos: []
+          }
+        },
+        mounted() {
+          axios.get('http://turbotuts-nestedset.test/api/video')
+            .then(response => {
+              this.videos = response.data;
+            })
+            .catch(error => {
+              console.log(error);
+            });
+        }
+      });
+  </script>
+</body>
+</html>

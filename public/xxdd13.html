@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Vue.js Accordion with Bootstrap</title>
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link href="https://vjs.zencdn.net/7.14.3/video-js.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <template id="todo-item-template">
+      <ul>
+        <li v-for="todo in todos">
+          {{ todo.text }}
+          <ul>
+            <todo-item
+              v-for="subtodo in todo.subTodos"
+              v-bind:subtodo="subtodo"
+            ></todo-item>
+          </ul>
+        </li>
+      </ul>
+    </template>
+
+    <!-- Vue.js and Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://vjs.zencdn.net/7.14.3/video.js"></script>
+  </body>
+
+  <script>
+    Vue.component('todo-item', {
+      template: '<li>{{subtodo.text}}</li>',
+      props: ['subtodo'],
+    })
+
+    var app = new Vue({
+      el: '#app',
+      data: function () {
+        return {
+          todos: [
+            {
+              text: 'Learn JavaScript',
+              subTodos: [
+                { text: 'Linting' },
+                { text: 'Bundling' },
+                { text: 'Testing' },
+              ],
+            },
+            {
+              text: 'Learn Vue',
+              subTodos: [
+                { text: 'Components' },
+                { text: 'Virtual DOM' },
+                { text: 'Templating' },
+              ],
+            },
+            {
+              text: 'Build something awesome',
+              subTodos: [
+                { text: 'Build' },
+                { text: 'Something' },
+                { text: 'Awesome' },
+              ],
+            },
+          ],
+        }
+      },
+    })
+  </script>
+</html>

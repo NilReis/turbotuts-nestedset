@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://vjs.zencdn.net/7.8.4/video-js.css" rel="stylesheet" />
+    <title>Video Capture</title>
+  </head>
+
+  <body>
+    <div id="video-container">
+      <video id="my-video" class="video-js" controls preload="auto">
+        <source
+          src="https://rr2---sn-ov8xaauxaxjvhcg-jbil.googlevideo.com/videoplayback?expire=1691634172&ei=nPXTZLbaMr2PobIP-YC70AQ&ip=177.10.177.27&id=o-AOaqncJmdPRGC2Ja-CrPRa97DeYo33c928k5VVXNA4kN&itag=22&source=youtube&requiressl=yes&mh=jE&mm=31%2C29&mn=sn-ov8xaauxaxjvhcg-jbil%2Csn-pmcg-bg0d&ms=au%2Crdu&mv=m&mvi=2&pl=24&initcwndbps=1558750&spc=UWF9f20b6URYimkWOzDii41vfPW56BI0YNUuzuoDYQ&vprv=1&svpuc=1&mime=video%2Fmp4&cnr=14&ratebypass=yes&dur=143.731&lmt=1481792979471484&mt=1691612250&fvip=7&fexp=24007246%2C24363393%2C51000011%2C51000012&beids=24350018&c=WEB&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Ccnr%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRQIgYSai-Wagf4BDm8J5VpU7u4JBMcHFTSYOGwwtwz-KjrgCIQCNgc9XSdn4nQIfGXxTzSMecC8aXw_ckmpOED39CCAiKA%3D%3D&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AG3C_xAwRAIgDLh67s8K737byd1ANjUYge3pNv5RACNM8fktmMPNxQICIDaGT569zGUIYam-Uz1jI5_-24DdUiyE0-LKEweo-bpl"
+          type="video/mp4"
+        />
+      </video>
+    </div>
+    <div id="capture-container" style="display: none;">
+      <button id="capture">Capturar imagem</button>
+      <button id="draw-rectangle">Desenhar retângulo</button>
+      <button id="draw-arrow">Desenhar seta</button>
+      <button id="draw-text">Escrever texto</button>
+      <input id="text-input" type="text" placeholder="Digite seu texto aqui" />
+      <canvas id="canvas" width="640" height="264"></canvas>
+
+      <button id="close-capture">Fechar</button>
+    </div>
+
+    <script src="https://vjs.zencdn.net/7.8.4/video.js"></script>
+
+    <script>
+      const player = videojs('my-video')
+      const videoElement = document.querySelector('#my-video_html5_api')
+      const captureButton = document.getElementById('capture')
+      const drawRectangleButton = document.getElementById('draw-rectangle')
+      const drawArrowButton = document.getElementById('draw-arrow')
+      const drawTextButton = document.getElementById('draw-text')
+      const textInput = document.getElementById('text-input')
+      const canvas = document.getElementById('canvas')
+      const ctx = canvas.getContext('2d')
+
+      videoElement.addEventListener('loadedmetadata', function () {
+        canvas.width = this.videoWidth
+        canvas.height = this.videoHeight
+      })
+      const videoContainer = document.getElementById('video-container')
+      const captureContainer = document.getElementById('capture-container')
+
+      const closeButton = document.getElementById('close-capture')
+
+      closeButton.addEventListener('click', () => {
+        videoContainer.style.display = 'block'
+        captureContainer.style.display = 'none'
+      })
+
+      player.ready(function () {
+        const videoElement = player.el().firstChild
+
+        videoElement.addEventListener('loadedmetadata', function () {
+          canvas.width = this.videoWidth
+          canvas.height = this.videoHeight
+        })
+
+        const Button = videojs.getComponent('Button')
+        const CaptureButton = videojs.extend(Button, {
+          constructor: function () {
+            Button.apply(this, arguments)
+          },
+          createEl: function () {
+            return Button.prototype.createEl.call(this, 'button', {
+              className: 'vjs-capture-button',
+              innerHTML: 'Capturar imagem',
+            })
+          },
+          handleClick: function () {
+            shapes.length = 0 // Limpa as formas anteriores
+
+            ctx.drawImage(videoElement, 0, 0, canvas.width, canvas.height)
+            videoContainer.style.display = 'none'
+            captureContainer.style.display = 'block'
+            player.pause()
+
+            // Sair do modo de tela cheia ao capturar a imagem
+            player.exitFullscreen()
+          },
+        })
+
+        player.controlBar.addChild(new CaptureButton(), {}, 0)
+      })
+
+      let drawing = false
+      let drawMode = 'none'
+      let x = 0
+      let y = 0
+      const shapes = []
+
+      captureButton.addEventListener('click', () => {
+        ctx.drawImage(videoElement, 0, 0, canvas.width, canvas.height)
+        shapes.length = 0 // Limpa as formas anteriores
+      })
+
+      drawRectangleButton.addEventListener('click', () => {
+        drawMode = drawMode === 'rectangle' ? 'none' : 'rectangle'
+      })
+
+      drawArrowButton.addEventListener('click', () => {
+        drawMode = drawMode === 'arrow' ? 'none' : 'arrow'
+      })
+
+      drawTextButton.addEventListener('click', () => {
+        drawMode = drawMode === 'text' ? 'none' : 'text'
+      })
+
+      function drawArrow(ctx, fromX, fromY, toX, toY) {
+        const headLength = 10
+        const dx = toX - fromX
+        const dy = toY - fromY
+        const angle = Math.atan2(dy, dx)
+        ctx.moveTo(fromX, fromY)
+        ctx.lineTo(toX, toY)
+        ctx.lineTo(
+          toX - headLength * Math.cos(angle - Math.PI / 6),
+          toY - headLength * Math.sin(angle - Math.PI / 6),
+        )
+        ctx.moveTo(toX, toY)
+        ctx.lineTo(
+          toX - headLength * Math.cos(angle + Math.PI / 6),
+          toY - headLength * Math.sin(angle + Math.PI / 6),
+        )
+      }
+
+      function redrawShapes() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height)
+        ctx.drawImage(videoElement, 0, 0, canvas.width, canvas.height)
+        shapes.forEach((shape) => {
+          ctx.beginPath()
+          if (shape.type === 'rectangle') {
+            ctx.rect(shape.x, shape.y, shape.width, shape.height)
+          } else if (shape.type === 'arrow') {
+            drawArrow(ctx, shape.fromX, shape.fromY, shape.toX, shape.toY)
+          } else if (shape.type === 'text') {
+            ctx.font = '20px Arial'
+            ctx.fillStyle = 'red' // Define a cor do preenchimento como vermelho
+            ctx.fillText(shape.text, shape.x, shape.y)
+            return
+          }
+          ctx.strokeStyle = 'red'
+          ctx.lineWidth = 2
+          ctx.stroke()
+        })
+      }
+
+      canvas.addEventListener('mousedown', (e) => {
+        if (drawMode === 'none') return
+
+        x = e.offsetX
+        y = e.offsetY
+        drawing = true
+      })
+
+      canvas.addEventListener('mousemove', (e) => {
+        if (!drawing || drawMode === 'none' || drawMode === 'text') return
+
+        redrawShapes()
+
+        ctx.beginPath()
+        if (drawMode === 'rectangle') {
+          ctx.rect(x, y, e.offsetX - x, e.offsetY - y)
+        } else if (drawMode === 'arrow') {
+          drawArrow(ctx, x, y, e.offsetX, e.offsetY)
+        }
+        ctx.strokeStyle = 'red'
+        ctx.lineWidth = 2
+        ctx.stroke()
+      })
+
+      canvas.addEventListener('mouseup', (e) => {
+        if (drawMode === 'rectangle') {
+          shapes.push({
+            type: 'rectangle',
+            x: x,
+            y: y,
+            width: e.offsetX - x,
+            height: e.offsetY - y,
+          })
+        } else if (drawMode === 'arrow') {
+          shapes.push({
+            type: 'arrow',
+            fromX: x,
+            fromY: y,
+            toX: e.offsetX,
+            toY: e.offsetY,
+          })
+        }
+
+        drawing = false
+      })
+
+      canvas.addEventListener('click', (e) => {
+        if (drawMode !== 'text') return
+
+        shapes.push({
+          type: 'text',
+          text: textInput.value,
+          x: e.offsetX,
+          y: e.offsetY,
+        })
+
+        redrawShapes()
+      })
+    </script>
+  </body>
+</html>

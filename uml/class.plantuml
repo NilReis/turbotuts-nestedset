@@ -1,0 +1,103 @@
+@startuml Turbotuts
+
+' hide the spot
+hide circle
+
+' avoid problems with angled crows feet
+skinparam linetype ortho
+
+
+entity "users"  as e_users #Green  {
+  *e0_id : number <<generated>>
+  --
+  *name : text
+  email : text
+  email_verified_at : timestamp
+  password : text
+  status : text
+  status : text
+  profile : text
+
+}
+
+entity "categories" as e_categories  #Green {
+  *e1_id : number <<generated>>
+  --
+  *text : text
+  icon : text
+  icon : text
+  url : text
+  parent_id : number
+  position : number
+}
+
+
+entity "playlists" as e_playlists  #Green {
+  *e2_id : number <<generated>>
+  --
+  *category_id : number <<FK>>
+  *user_id : number <<FK>>
+  title : text
+  playlist_id : text
+  description : text
+  thumbnail : text
+  publishedAt : text
+  kind : text
+  type : text
+  video_count : number
+}
+
+entity "topics" as e_topics  #Green {
+  *e1_id : number <<generated>>
+  *playlist_id : number <<FK>>
+  --
+  *text : text
+  icon : text
+  url : text
+  parent_id : number
+  position : number
+}
+
+entity "videos" as e_videos  #Green {
+  *e3_id : number <<generated>>
+  --
+  topic_id : number <<FK>>
+  --
+  youtube_id : text
+  title : text
+  description : text
+  duration : text
+  source_src : text
+  source_type : text
+  thumbnail_src : text
+  thumbnail_media : text
+  thumbnail_type : text
+  channel_id : text
+  published_at : dateTime
+}
+
+entity "markers" as e_markers  #Green {
+  *e3_id : number <<generated>>
+  --
+  time : time
+  label : text
+  video_id : number <<FK>>
+}
+entity "snapshots" as e_snapshots  #Green {
+  *e3_id : number <<generated>>
+  --
+  nome : text
+  videoid : text
+  shotTime : float
+  video_id : number <<FK>>
+}
+
+e_users ||..o{ e_playlists
+e_categories ||..o{ e_playlists
+e_playlists ||..o{ e_topics
+e_topics ||..o{ e_videos
+e_videos ||..o{ e_markers
+e_videos ||..o{ e_snapshots
+
+
+@enduml

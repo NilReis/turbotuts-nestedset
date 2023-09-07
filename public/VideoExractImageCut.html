@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Capture and Crop Image from Video</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css" />
+  <link href="https://vjs.zencdn.net/7.8.4/video-js.css" rel="stylesheet" />
+  <style>
+    #preview-crop {
+      display: none; /* Hide until cropping is done */
+    }
+    #preview-crop img {
+      max-width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <video id="my-video" class="video-js" controls preload="auto" data-setup="{}" crossorigin="anonymous">
+      <source src="sample-5s.mp4" type="video/mp4" />
+    </video>
+
+    <button id="capture-button">Capture</button>
+    <button id="finalize-crop-button" style="display: none;">Finalizar Corte</button>
+    <div id="preview-crop">
+      <img id="preview-image" />
+    </div>
+  </div>
+
+  <script src="https://vjs.zencdn.net/7.8.4/video.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
+  <script>
+    const videoPlayer = videojs('my-video');
+    const captureButton = document.getElementById('capture-button');
+    const finalizeCropButton = document.getElementById('finalize-crop-button');
+    let cropper;
+
+    function createCropper(image) {
+      return new Cropper(image, {
+        dragMode: 'move',
+      });
+    }
+
+    captureButton.addEventListener('click', () => {
+      const videoElement = videoPlayer.tech_.el_;
+      const canvas = document.createElement('canvas');
+      canvas.width = videoElement.videoWidth;
+      canvas.height = videoElement.videoHeight;
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(videoElement, 0, 0, canvas.width, canvas.height);
+
+      const previewImage = document.getElementById('preview-image');
+      previewImage.src = canvas.toDataURL();
+      document.querySelector('#preview-crop').style.display = 'block';
+
+      cropper = createCropper(previewImage);
+
+      finalizeCropButton.style.display = 'block'; // Show finalize crop button
+    });
+
+    finalizeCropButton.addEventListener('click', () => {
+      if (cropper) {
+        const previewImage = document.getElementById('preview-image');
+        previewImage.src = cropper.getCroppedCanvas().toDataURL();
+        cropper.destroy();
+        document.querySelector('#preview-crop').style.display = 'block';
+        finalizeCropButton.style.display = 'none'; // Hide finalize crop button
+      }
+    });
+  </script>
+
+</body>
+
+</html>
