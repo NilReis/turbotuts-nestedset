@@ -10,6 +10,7 @@ use YouTube\YouTubeDownloader;
 use YouTube\Exception\YouTubeException;
 use Illuminate\Support\Facades\Storage;
 use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Log;
 
 
 
@@ -82,7 +83,7 @@ class PlaylistYoutubeController extends Controller
      */
     public function show($id)
     {
-        //
+        echo $id;
     }
 
     /**
@@ -147,7 +148,7 @@ class PlaylistYoutubeController extends Controller
             if ($response->getStatusCode() == 200) {
                 $fileContent = $response->getBody()->getContents();
 
-
+                
                 // Aqui, estamos armazenando o arquivo no disco 'local'. Você pode mudar isso conforme necessário.
                 Storage::disk('local')->put('/public/videos/' . $filename, $fileContent);
 
@@ -162,6 +163,44 @@ class PlaylistYoutubeController extends Controller
                     $e->getMessage()
             );
             return null; // Você pode retornar uma resposta adequada aqui
+        }
+    }
+    public function getVideosFromPlaylistByCategory($category, $subcategory, $playlistId)
+    {
+        try {
+            $client = new Google_Client();
+            $apiKey = env('YOUTUBE_API_KEY');
+            $client->setDeveloperKey($apiKey);
+            $youtube = new Google_Service_YouTube($client);
+
+            $items = [];
+            $nextPageToken = null;
+
+            do {
+                $playlistItemsResponse = $youtube->playlistItems->listPlaylistItems(
+                    'id, snippet, contentDetails',
+                    [
+                        'playlistId' => $playlistId,
+                        'maxResults' => 50, // máximo permitido é 50
+                        'pageToken' => $nextPageToken,
+                    ]
+                );
+
+                foreach ($playlistItemsResponse['items'] as $playlistItem) {
+                    $items[] = $playlistItem;
+                }
+
+                $nextPageToken = $playlistItemsResponse['nextPageToken'] ?? null;
+            } while ($nextPageToken);
+
+            foreach ($items as $item) {
+                $videoId = $item['contentDetails']['videoId'];
+                $this->getDownloadLink("$videoId");
+            }
+
+            return response()->json($items, 200);
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'An error occurred: ' . $e->getMessage()], 500);
         }
     }
 }

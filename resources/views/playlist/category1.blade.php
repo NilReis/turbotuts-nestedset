@@ -115,6 +115,7 @@
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios@0.26.1/dist/axios.min.js"></script>
 <script src="https://vjs.zencdn.net/7.8.4/video.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
 
 <script id="Vuejs">
@@ -252,7 +253,6 @@ new Vue({
 });
 </script>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <script id="Drawling">
 const player = videojs('my-video')
@@ -501,4 +501,3 @@ document.getElementById('submit-capture').addEventListener('click', function() {
 @section('js')
 
 @stop
-

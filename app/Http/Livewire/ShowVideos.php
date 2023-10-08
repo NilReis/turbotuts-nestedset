@@ -26,17 +26,21 @@ class ShowVideos extends Component
     public $youTubeVideo;
     public $currentId;
     public $text;
+    public $playlistId;
     public $student_id, $name, $email, $phone, $student_edit_id, $student_delete_id;
 
     public $view_student_id, $view_student_name, $view_student_email, $view_student_phone;
 
-    protected $listeners  = [
-        'showVideos' => 'showVideos',
-        'AddMarker' => 'previous',
-        'refreshComponent' => '$refresh'
-    ];
+    public $videos;
+
+    // protected $listeners  = [
+    //     'showVideos' => 'showVideos',
+    //     'AddMarker' => 'previous',
+    //     'refreshComponent' => '$refresh'
+    // ];
 
 
+    protected $listeners = ['showVideosForPlaylist' => 'loadVideosForPlaylist'];
 
 
     public function submit()
@@ -99,20 +103,17 @@ class ShowVideos extends Component
 
         $this->emitTo('ShowVideos', 'refreshComponent');
     }
+
+    public function loadVideosForPlaylist($playlistId)
+    {
+        $this->videos = Video::where('playlist_id', $playlistId)->get();
+        $this->render(); // Força uma renderização do componente
+    }
     public function render()
     {
-        $videos = 0;
 
-        // implemente log error usando Laravel log
-        try {
-
-            $videos = Video::wherePlaylistId($this->playlist)->get();
-            $playlist = Playlist::find($this->playlist);
-            // $this->emit('setTitle', $playlist->title);
-        } catch (\Throwable $th) {
-            Log::error($th);
-        }
-        return view('livewire.show-videos', ['videos' => $videos]);
-
+        $videos = Video::wherePlaylistId('51')->get();
+        // dd($videos);
+        return view('livewire.show-videos', ['videos' => $this->videos]);
     }
 }

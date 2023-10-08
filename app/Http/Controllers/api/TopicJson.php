@@ -495,38 +495,40 @@ class TopicJson extends Controller
             $filePath =
                 'storage/videos/' . $videoYoutube->youtube_id . '.mp4';
 
-            // Check if the file exists
-            if (!file_exists($filePath)) {
-                $downloadOptions = $youtube->getDownloadLinks(
-                    'https://www.youtube.com/watch?v=' .
-                        $videoYoutube->youtube_id
+            $downloadOptions = $youtube->getDownloadLinks(
+                'https://www.youtube.com/watch?v=' .
+                    $videoYoutube->youtube_id
+            );
+
+            if ($downloadOptions->getAllFormats()) {
+
+                $varFilter = array_filter(
+                    $downloadOptions->getAllFormats(),
+                    function ($v, $k) {
+                        return $k == $k && $v->quality == 'hd720';
+                    },
+                    ARRAY_FILTER_USE_BOTH
                 );
 
-                if ($downloadOptions->getAllFormats()) {
-
-                    $varFilter = array_filter(
-                        $downloadOptions->getAllFormats(),
-                        function ($v, $k) {
-                            return $k == $k && $v->quality == 'hd720';
-                        },
-                        ARRAY_FILTER_USE_BOTH
-                    );
-
-                    $numeric_indexed_array = array_values($varFilter);
-                    $varResult = $downloadOptions->getFirstCombinedFormat()
-                        ->url;
-                } else {
-                    echo 'No links found';
-                }
-
-                $this->saveVideoFromUrl(
-                    $numeric_indexed_array[0]->url,
-                    $videoYoutube->youtube_id . '.mp4'
-                );
+                $numeric_indexed_array = array_values($varFilter);
+                $varResult = $downloadOptions->getFirstCombinedFormat()
+                    ->url;
+            } else {
+                echo 'No links found';
             }
 
+            // // Check if the file exists
+            // if (!file_exists($filePath)) {
+
+
+            //     $this->saveVideoFromUrl(
+            //         $numeric_indexed_array[0]->url,
+            //         $videoYoutube->youtube_id . '.mp4'
+            //     );
+            // }
+
             $varResult = [
-                'url' => 'http://turbotuts-nestedset.test/' . $filePath,
+                'url' => $numeric_indexed_array[0]->url,
                 'description' => str_replace(
                     "\n",
                     '</br>',

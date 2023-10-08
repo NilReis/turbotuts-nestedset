@@ -11,6 +11,7 @@ use App\Http\Controllers\api\VideoApi;
 use App\Http\Controllers\api\PlaylistYoutubeController;
 
 
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -52,6 +53,8 @@ Route::get('/topicjson/videoTitles/{id}', [TopicJson::class, 'VideoTitles']);
 Route::apiResource("marker", "App\Http\Controllers\api\MarkerJsonControlador");
 Route::apiResource("playist", "App\Http\Controllers\api\PlaylistApi");
 
+Route::apiResource("PlaylistYoutubeController", "App\Http\Controllers\api\PlaylistYoutubeController");
+
 
 // Rota para o método index com parâmetro
 Route::get('video/{playlistId}', [VideoApi::class, 'index']);
@@ -65,6 +68,8 @@ Route::apiResource("video", "App\Http\Controllers\api\VideoApi");
 Route::get('get-download-link/{youtube_id}', [PlaylistYoutubeController::class, 'getDownloadLink']);
 Route::apiResource("playlist-youtube", "App\Http\Controllers\api\PlaylistYoutubeController");
 
+
+Route::get('/youtube/playlist/{category}/{subcategory}/{playlistId}', [PlaylistYoutubeController::class, 'getVideosFromPlaylistByCategory']);
 
 //Route::get('/marker', [MarkerjsonController::class, 'getCurrentVideo']);
 

@@ -45,7 +45,6 @@ class VideoApi extends Controller
     public function show(Video $video)
     {
        $teste = Video::where('id', $video->id)->with('chapters')->get();
-       dd($teste);
     }
 
     /**

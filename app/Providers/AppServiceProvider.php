@@ -30,7 +30,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(Dispatcher $events)
     {
-        //app('url')->forceRootUrl('https://nindinbxwo.sharedwithexpose.com/');
+        // app('url')->forceRootUrl('http://nil-reis.sa-1.sharedwithexpose.com/');
         Paginator::useBootstrap();
 
 

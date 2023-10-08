@@ -48,7 +48,11 @@ class PlaylistResult extends Component
         $pc = new PlaylistController();
         $pc->addPlaylist($playlistid, $category);
     }
-
+    // PlaylistResult.php
+    public function emitShowVideos($playlistId)
+    {
+        $this->emit('showVideosForPlaylist', $playlistId);
+    }
 
     public function render()
     {
