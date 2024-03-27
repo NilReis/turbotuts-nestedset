@@ -6,6 +6,13 @@ use App\Models\video;
 use App\Models\marker;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
+use YouTube\YouTubeDownloader;
+use YouTube\Exception\YouTubeException;
+use Illuminate\Support\Facades\Storage; // Adicione esta linha
+
+
+
 
 class VideoController extends Controller
 {
@@ -107,4 +114,53 @@ class VideoController extends Controller
        dd($request);
 
     }
+    public function addToDownloadQueue(Request $request)
+    {
+        $url = $request->input('url');
+        Artisan::call("download:video {$url}");
+    
+        return response()->json(['message' => 'Video added to download queue']);
+    }
+
+    public function downloadVideo($videoId)
+    {
+        $youtube = new YouTubeDownloader();
+
+        try {
+            $downloadOptions = $youtube->getDownloadLinks("https://www.youtube.com/watch?v={$videoId}");
+
+            if ($downloadOptions && $downloadOptions->getAllFormats()) {
+                $downloadLink = $downloadOptions->getFirstCombinedFormat()->url;
+                echo $downloadLink;
+
+                // Tenta obter o conteúdo do vídeo
+                $ch = curl_init();
+                curl_setopt($ch, CURLOPT_URL, $downloadLink);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+                curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+                $videoContent = curl_exec($ch);
+                $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+                curl_close($ch);
+
+                if ($videoContent === false || $httpcode != 200) {
+                    throw new \Exception("Falha ao baixar o vídeo: {$videoId}");
+                }
+
+                $savePath = "videos/{$videoId}.mp4";
+                if (!Storage::disk('public')->put($savePath, $videoContent)) {
+                    throw new \Exception("Falha ao salvar o vídeo: {$videoId}");
+                }
+            } else {
+                Log::error("Não foi possível encontrar o link de download para o vídeo ID {$videoId}");
+            }
+
+        } catch (YouTubeException $e) {
+            Log::error("Erro ao baixar o vídeo: " . $e->getMessage());
+            throw $e;
+        } catch (\Exception $e) {
+            Log::error("Erro ao baixar o vídeo: " . $e->getMessage());
+            throw $e;
+        }
+    }
+
 }

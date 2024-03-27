@@ -20,7 +20,11 @@
 </div>
 
 <script>
+    console.log(Livewire); // Deve logar o objeto Livewire se estiver disponível
+
 document.addEventListener('DOMContentLoaded', function () {
+    console.log('show.bs.collapse event fired'); // Adicione esta linha
+
     var accordion = document.getElementById('accordion');
     accordion.addEventListener('show.bs.collapse', function (e) {
         var playlistId = e.target.dataset.playlistId;
@@ -29,6 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Adicionado evento de clique para botões de carregar vídeos
     document.querySelectorAll('.load-videos-btn').forEach(function(button) {
+        console.log('Button clicked'); // Adicione esta linha
         button.addEventListener('click', function(e) {
             var playlistId = e.target.dataset.playlistId;
             Livewire.emit('showVideosForPlaylist', playlistId);

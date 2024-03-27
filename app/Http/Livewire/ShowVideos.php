@@ -114,6 +114,6 @@ class ShowVideos extends Component
 
         $videos = Video::wherePlaylistId('51')->get();
         // dd($videos);
-        return view('livewire.show-videos', ['videos' => $this->videos]);
+        return view('livewire.show-videos', ['videos' => $videos]);
     }
 }

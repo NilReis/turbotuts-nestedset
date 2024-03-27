@@ -29,6 +29,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 
+Route::post('/add-to-download-queue', 'VideoController@addToDownloadQueue');
 
 Route::resource('/snapshots', SnapshotController::class );
 Route::resource('/categoryjson', CategoryJson::class );
@@ -53,7 +54,7 @@ Route::get('/topicjson/videoTitles/{id}', [TopicJson::class, 'VideoTitles']);
 Route::apiResource("marker", "App\Http\Controllers\api\MarkerJsonControlador");
 Route::apiResource("playist", "App\Http\Controllers\api\PlaylistApi");
 
-Route::apiResource("PlaylistYoutubeController", "App\Http\Controllers\api\PlaylistYoutubeController");
+Route::apiResource("playlists", "App\Http\Controllers\api\PlaylistYoutubeController");
 
 
 // Rota para o método index com parâmetro
@@ -61,6 +62,7 @@ Route::get('video/{playlistId}', [VideoApi::class, 'index']);
 
 // Rota para o método show com parâmetro
 Route::get('video/show/{videoId}', [VideoApi::class, 'show']);
+Route::get('/videos/{id}', [VideoApi::class, 'show']);
 
 
 Route::apiResource("video", "App\Http\Controllers\api\VideoApi");

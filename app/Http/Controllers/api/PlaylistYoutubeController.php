@@ -11,6 +11,9 @@ use YouTube\Exception\YouTubeException;
 use Illuminate\Support\Facades\Storage;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Log;
+use App\Http\Controllers\API\DateTime;
+use App\Http\Services\YouTubePlaylistService; 
+
 
 
 
@@ -23,45 +26,7 @@ class PlaylistYoutubeController extends Controller
      */
     public function index()
     {
-        try {
-            $client = new Google_Client();
 
-            // Use a chave de API a partir de uma variável de ambiente ou configuração
-            $apiKey = env('YOUTUBE_API_KEY'); // Supondo que você tenha definido a chave em seu arquivo .env
-            $client->setDeveloperKey($apiKey);
-
-            $youtube = new Google_Service_YouTube($client);
-
-            $items = [];
-            $nextPageToken = null;
-
-            do {
-                $playlistItemsResponse = $youtube->playlistItems->listPlaylistItems(
-                    'id, snippet, contentDetails',
-                    [
-                        'playlistId' => request('playlistId'),
-                        'maxResults' => 100,
-                        'pageToken' => $nextPageToken,
-                    ]
-                );
-
-                foreach ($playlistItemsResponse['items'] as $playlistItem) {
-                    $items[] = $playlistItem;
-                    //$topic = $this->AddTopicChild($playlistItem, $playlistSaveid); // Se você quiser usar isso, descomente
-                }
-
-                $nextPageToken =
-                    $playlistItemsResponse['nextPageToken'] ?? null;
-            } while ($nextPageToken);
-
-            return $items;
-        } catch (\Exception $e) {
-            // Aqui você pode lidar com a exceção, por exemplo, retornando uma resposta de erro
-            return response()->json(
-                ['error' => 'An error occurred: ' . $e->getMessage()],
-                500
-            );
-        }
     }
 
     /**
@@ -72,8 +37,27 @@ class PlaylistYoutubeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validando o ID da playlist e category_id passados no request
+        $validatedData = $request->validate([
+            'playlist_id' => 'required|string',
+            'category_id' => 'required|integer'
+        ]);
+
+        try {
+            // Instanciando o serviço YouTubePlaylistService com $usePythonScript = true
+            $youtubePlaylistService = app(\App\Http\Services\YouTubePlaylistService::class);
+
+
+            // Chame o método do serviço para adicionar a playlist
+            $playlist = $youtubePlaylistService->addPlaylist($validatedData['playlist_id'], $validatedData['category_id']);
+
+            // Aqui, você pode retornar a resposta desejada, por exemplo, a playlist adicionada
+            return response()->json(['message' => 'Playlist added successfully', 'playlist' => $playlist], 201);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Error adding playlist', 'error' => $e->getMessage()], 500);
+        }
     }
+
 
     /**
      * Display the specified resource.
@@ -85,7 +69,6 @@ class PlaylistYoutubeController extends Controller
     {
         echo $id;
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -95,8 +78,18 @@ class PlaylistYoutubeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $playlistId = $request->input('playlist_id'); // ID da playlist na API do YouTube
+        $categoryId = $request->input('category_id'); // Categoria da playlist, pode ser nulo ou vazio
+
+        $request->validate([
+            'playlist_id' => 'sometimes|required|string',
+            // 'category_id' => 'required|integer', // Removido para permitir que category_id seja opcional
+        ]);
+
+        $youtubePlaylistService = new YouTubePlaylistService();
+        return $youtubePlaylistService->updatePlaylist($playlistId, $categoryId);
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -148,7 +141,7 @@ class PlaylistYoutubeController extends Controller
             if ($response->getStatusCode() == 200) {
                 $fileContent = $response->getBody()->getContents();
 
-                
+
                 // Aqui, estamos armazenando o arquivo no disco 'local'. Você pode mudar isso conforme necessário.
                 Storage::disk('local')->put('/public/videos/' . $filename, $fileContent);
 
@@ -165,42 +158,5 @@ class PlaylistYoutubeController extends Controller
             return null; // Você pode retornar uma resposta adequada aqui
         }
     }
-    public function getVideosFromPlaylistByCategory($category, $subcategory, $playlistId)
-    {
-        try {
-            $client = new Google_Client();
-            $apiKey = env('YOUTUBE_API_KEY');
-            $client->setDeveloperKey($apiKey);
-            $youtube = new Google_Service_YouTube($client);
 
-            $items = [];
-            $nextPageToken = null;
-
-            do {
-                $playlistItemsResponse = $youtube->playlistItems->listPlaylistItems(
-                    'id, snippet, contentDetails',
-                    [
-                        'playlistId' => $playlistId,
-                        'maxResults' => 50, // máximo permitido é 50
-                        'pageToken' => $nextPageToken,
-                    ]
-                );
-
-                foreach ($playlistItemsResponse['items'] as $playlistItem) {
-                    $items[] = $playlistItem;
-                }
-
-                $nextPageToken = $playlistItemsResponse['nextPageToken'] ?? null;
-            } while ($nextPageToken);
-
-            foreach ($items as $item) {
-                $videoId = $item['contentDetails']['videoId'];
-                $this->getDownloadLink("$videoId");
-            }
-
-            return response()->json($items, 200);
-        } catch (\Exception $e) {
-            return response()->json(['error' => 'An error occurred: ' . $e->getMessage()], 500);
-        }
-    }
 }

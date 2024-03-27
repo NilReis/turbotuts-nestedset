@@ -35,16 +35,18 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Video extends Model
 {
+    protected $fillable = ['youtube_id'];
     use HasFactory;
+
 
     public function playlist()
     {
         return $this->belongsTo('App\Models\playlist');
     }
 
-    public function chapters()
+    public function markers()
     {
-        return $this->hasMany('App\Models\marker');
+        return $this->hasMany('App\Models\Marker');
     }
 
     public function snapshot()

@@ -77,40 +77,13 @@ class PlaylistController extends Controller
      */
     public function show($id)
     {
-        // $topics = Topic::wherePlaylistId($id)->get();
-        // $playlistsVideojs = [];
-
-        // foreach ($topics as $topic) {
-        //     // $playlistVideojs = [];
-        //     $video = Video::whereTopicId($topic->id)->first();
-        //     $playlistsVideojs[] =  $video->youtube_id;
-        //     // $playlistVideojs["id"] = $video->YoutubeID;
-        //     // $playlistVideojs["name"] = $video->Title;
-        //     // $playlistVideojs["description"] = "";
-        //     // $playlistVideojs["duration"] = $video->Duration;
-        //     // $playlistVideojs["sources"] = array(array("src"=> "https://www.youtube.com/watch?v=" . $video->Source_src, "type" => 'video/youtube' ));
-        //     // $playlistVideojs["thumbnail"] = array(array("srcset"=> "", "src" => '', "type"=>'image/jpeg',"media"=>'(min-width: 400px;)' ));
-        //     // $playlistsVideojs[] = $playlistVideojs;
-        // }
-
-        // $videoslist = json_encode($playlistsVideojs, JSON_UNESCAPED_SLASHES);
-        // $arr = [1, 2, 3, 4, 5];
-
-        // $teste = "['" . implode("','", $playlistsVideojs) . "']";
-
-        // $videos1 = json_encode($playlistsVideojs, JSON_HEX_QUOT);
-        // return view('playlist.show', ['videos' => $videos1, 'items' => $videos]);
-
-       $topics = Video::whereplaylist_id($id)->get();
-       $topicstring = "";
-       foreach ($topics as $topic ) {
-
-        $topicstring =  $topicstring . $topic->title;
-
-       }
-
-
-        return view('playlist.show', ['playlistid' => $id], ['topics' => $topics ] );
+        $playlist = Playlist::find($id);
+        $videos = Video::where('playlist_id', $id)->get(); // Ajuste esta linha conforme necessário
+    
+        return view('playlist.show', [
+            'playlist' => $playlist,
+            'videos' => $videos
+        ]);
     }
 
     /**

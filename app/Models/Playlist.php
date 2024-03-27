@@ -31,6 +31,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Playlist extends Model
 {
+    protected $fillable = ['playlist_id', 'outros', 'atributos', 'aqui'];
+
     use HasFactory;
 
     public function topics()

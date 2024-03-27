@@ -25,3 +25,4 @@ _ide_helper.php
 /.vscode
 /lixo
 public/video1.mp4
+.docker/

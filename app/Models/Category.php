@@ -99,4 +99,16 @@ class Category extends Model
     {
         return $this->hasMany('App\Models\Playlist');
     }
+
+        // Relacionamento para subcategorias (children)
+        public function children()
+        {
+            return $this->hasMany(Category::class, 'parent_id');
+        }
+    
+        // Relacionamento para a categoria pai (opcional)
+        public function parent()
+        {
+            return $this->belongsTo(Category::class, 'parent_id');
+        }
 }
