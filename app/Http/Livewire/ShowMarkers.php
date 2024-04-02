@@ -18,7 +18,8 @@ class ShowMarkers extends Component
 
     public function loadMarkers()
     {
-        $this->markers = Marker::where('video_id', $this->videoId)->get();
+        $this->markers = Marker::where('video_id', $this->videoId)->orderBy('time', 'asc')->get();
+        dd($this->markers);
     }
 
     public function render()

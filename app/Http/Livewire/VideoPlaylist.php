@@ -39,7 +39,7 @@ class VideoPlaylist extends Component
     
     public function loadMarkers($videoId)
     {
-        $this->markers = Marker::where('video_id', $videoId)->get();
+        $this->markers = Marker::where('video_id', $videoId)->orderBy('time', 'asc')->get();
     }
 
     public function updateCurrentVideoId($youtubeId)
@@ -64,7 +64,6 @@ class VideoPlaylist extends Component
         $this->playlistId = $playlistId;
         $this->videos = Video::where('playlist_id', $this->playlistId)->get();
 
-        // dd($this->videos);
 
         if (count($this->videos) > 0) {
             $this->currentVideoUrl = $this->videos[0]->url; // Inicializa com o URL do primeiro vídeo
